@@ -1,23 +1,23 @@
-import pathlib
+from pathlib import Path
+#import pathlib
 import os
 import prediction_model
 
 # i am interested in getting prediction_model root
-PACKAGE_ROOT = pathlib.Path(prediction_model.__file__).resolve.parent
+PACKAGE_ROOT = Path(os.path.abspath(os.path.dirname(__file__))).parent
+#PACKAGE_ROOT = pathlib.Path(prediction_model.__file__).resolve().parent
 
 DATAPATH = os.path.join(PACKAGE_ROOT,"datasets")
 
-#now it is easy to access datasets
 TRAIN_FILE = 'train.csv'
 TEST_FILE = 'test.csv'
 
 MODEL_NAME = 'classification.pkl'
-#where we want to save model
-SAVE_MODEL_PATH = os.path.join(PACKAGE_ROOT,"trained_models")
+SAVE_MODEL_PATH = os.path.join(PACKAGE_ROOT,'trained_models')
 
 TARGET = 'Loan_Status'
 
-#lets have feature list that we want to keep (final features)
+#Final features used in the model
 FEATURES = ['Gender', 'Married', 'Dependents', 'Education',
        'Self_Employed', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount',
        'Loan_Amount_Term', 'Credit_History', 'Property_Area']
@@ -46,4 +46,6 @@ FEATURE_TO_ADD = 'CoapplicantIncome'
 
 DROP_FEATURES = ['CoapplicantIncome']
 
-LOG_FEATURES = ['ApplicantIncome','LoanAmount']
+LOG_FEATURES = ['ApplicantIncome', 'LoanAmount'] # taking log of numerical columns
+
+

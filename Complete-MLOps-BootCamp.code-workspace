@@ -24,6 +24,7 @@
 			"titleBar.inactiveBackground": "#80808099",
 			"titleBar.inactiveForeground": "#15202b99"
 		},
-		"peacock.color": "#808080"
+		"peacock.color": "#808080",
+		"CodeGPT.apiKey": "Groq"
 	}
 }
